@@ -1,3 +1,5 @@
+# 1.Introduccion Composición de componentes
+
 # Filosofía y principios de diseño en React
 
 fuente :https://es.reactjs.org/docs/design-principles.html
@@ -44,3 +46,9 @@ fuente :https://es.reactjs.org/docs/design-principles.html
 -   se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.
 
 ## Composición:
+
+# 2 . Render props y render functions
+
+-   Es un nuevo patron ,
+-   render funcions : entregar informacion por una funcion y renderizar la funcion
+-   render props : renderizar components segun su estado

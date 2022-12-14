@@ -14,7 +14,7 @@ import { Modal } from "../Modal";
 import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
-    //Compocion de components
+    //Composicion de components
     const {
         error,
         loading,
