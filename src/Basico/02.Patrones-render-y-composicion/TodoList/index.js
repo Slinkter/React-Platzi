@@ -2,7 +2,7 @@ import React from "react";
 import "./TodoList.css";
 
 function TodoList(props) {
-    const renderFunc = props.children || props.render;
+    const renderFunc = props.children || props.render; // children = render funcion
     const ShowError = props.error && props.onError();
     const showLoading = props.loading && props.onLoading();
     const showEmptyTodos =
