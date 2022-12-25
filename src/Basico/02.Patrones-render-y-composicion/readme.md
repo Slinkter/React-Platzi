@@ -71,4 +71,4 @@ const withSum1 = highOrderFunction(1);
 const sumTotal = withSum1(2);
 ```
 
--
+## repaso
