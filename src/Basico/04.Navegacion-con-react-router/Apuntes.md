@@ -18,3 +18,8 @@ Su navegación funciona por medio de los Slash Hashes y Slash /#/, esto nos pued
 Funciona por medio de un Array de rutas que nos indica en que ruta estamos y renderizar ese contenido. Se suele usar para aplicaciones móviles para cambiar de vistas.
 
 ## Route: componentes de navegación
+
+## Link vs. NavLink
+
+-   cuando se usa la etiqueta <a> manda una peticion al servidor para que se descarque el HTML
+-   con <Link> nos ayuda
