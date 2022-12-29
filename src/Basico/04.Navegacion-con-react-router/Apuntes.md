@@ -21,5 +21,9 @@ Funciona por medio de un Array de rutas que nos indica en que ruta estamos y ren
 
 ## Link vs. NavLink
 
--   cuando se usa la etiqueta <a> manda una peticion al servidor para que se descarque el HTML
+-   cuando se usa la etiqueta a manda una peticion al servidor para que se descarque el HTML
 -   con <Link> nos ayuda
+
+## useNavigate
+
+-   historial de navegación

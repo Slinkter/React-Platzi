@@ -7,7 +7,7 @@ const BlogPage = () => {
         <div>
             <h1>Lista de blog</h1>
             {blogdata.map((post) => (
-                <BlogLink post={post} />
+                <BlogLink key={post.slug} post={post} />
             ))}
         </div>
     );
