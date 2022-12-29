@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import BlogPage from "./Page/BlogPage";
+import BlogPost from "./Page/BlogPost";
 import HomePage from "./Page/HomePage";
 import Menu from "./Page/Menu";
 import ProfilePage from "./Page/ProfilePage";
@@ -23,6 +24,7 @@ const index = () => {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/blog" element={<BlogPage />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="*" element={<p> Not Found </p>} />
                 </Routes>

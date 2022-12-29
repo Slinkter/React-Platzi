@@ -1,7 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import blogdata from "../db/datablog";
 
 const BlogPage = () => {
-    return <h1>BlogPage</h1>;
+    return (
+        <div>
+            <h1>Lista de blog</h1>
+            {blogdata.map((post) => (
+                <BlogLink post={post} />
+            ))}
+        </div>
+    );
 };
 
 export default BlogPage;
+
+const BlogLink = ({ post }) => {
+    return (
+        <li>
+            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+        </li>
+    );
+};
