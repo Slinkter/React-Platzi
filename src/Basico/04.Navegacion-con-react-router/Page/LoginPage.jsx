@@ -5,8 +5,9 @@ const LoginPage = () => {
     const auth = useAuth();
     const [username, setUsername] = React.useState("");
 
-    const login = () => {
-        setUsername({});
+    const login = (e) => {
+        e.preventDefault();
+        auth.login({ username });
     };
 
     return (
