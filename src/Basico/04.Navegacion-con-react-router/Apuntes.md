@@ -27,3 +27,10 @@ Funciona por medio de un Array de rutas que nos indica en que ruta estamos y ren
 ## useNavigate
 
 -   historial de navegación
+
+## Outlet: nested routes
+
+-   nested , es una palabra de cosas que estran dentro otras cosas , CSS
+-   nested routes , rutas dentro de rutas
+-   este componente nos permite renderizar mas de 2 rutas
+-
