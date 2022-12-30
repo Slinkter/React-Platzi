@@ -7,7 +7,7 @@ import LoginPage from "./Page/LoginPage";
 import LogoutPage from "./Page/LogoutPage";
 import Menu from "./Page/Menu";
 import ProfilePage from "./Page/ProfilePage";
-import { AuthProvider } from "./provider/auth";
+import { AuthProvider, AuthRoute } from "./provider/auth";
 
 /*
     /#/
@@ -30,7 +30,14 @@ const index = () => {
                         </Route>
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/logout" element={<LogoutPage />} />
-                        <Route path="/profile" element={<ProfilePage />} />
+                        <Route
+                            path="/profile"
+                            element={
+                                <AuthRoute>
+                                    <ProfilePage />
+                                </AuthRoute>
+                            }
+                        />
                         <Route path="*" element={<p> Not Found </p>} />
                     </Routes>
                 </AuthProvider>

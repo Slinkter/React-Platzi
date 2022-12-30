@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "../provider/auth";
 
 const LoginPage = () => {
@@ -9,6 +10,10 @@ const LoginPage = () => {
         e.preventDefault();
         auth.login({ username });
     };
+
+    if (auth.user) {
+        return <Navigate to="/profile" />;
+    }
 
     return (
         <React.Fragment>
