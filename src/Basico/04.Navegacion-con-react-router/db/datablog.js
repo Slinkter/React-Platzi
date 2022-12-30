@@ -3,7 +3,7 @@ blogdata.push({
     title: "Que es react ?",
     slug: "que-es-react",
     content: "react course",
-    author: "somone",
+    author: "somone 1",
 });
 blogdata.push({
     title: "Que es vue ?",
