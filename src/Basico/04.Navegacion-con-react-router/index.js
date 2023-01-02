@@ -1,5 +1,6 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
+//
 import BlogPage from "./Page/BlogPage";
 import BlogPost from "./Page/BlogPost";
 import HomePage from "./Page/HomePage";
@@ -7,7 +8,7 @@ import LoginPage from "./Page/LoginPage";
 import LogoutPage from "./Page/LogoutPage";
 import Menu from "./Page/Menu";
 import ProfilePage from "./Page/ProfilePage";
-import { AuthProvider, AuthRoute } from "./provider/auth";
+import { AuthProvider, AuthRoute } from "./provider/auth"; // context
 
 /*
     /#/
@@ -22,7 +23,6 @@ const index = () => {
             <HashRouter>
                 <AuthProvider>
                     <Menu />
-
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/blog" element={<BlogPage />}>

@@ -7,8 +7,9 @@ const BlogPage = () => {
         <div>
             <h1>Lista de blog</h1>
             <Outlet />
+
             {blogdata.map((post) => (
-                <BlogLink key={post.slug} post={post} />
+                <BlogItem key={post.slug} post={post} />
             ))}
         </div>
     );
@@ -16,7 +17,7 @@ const BlogPage = () => {
 
 export default BlogPage;
 
-const BlogLink = ({ post }) => {
+const BlogItem = ({ post }) => {
     return (
         <li>
             <Link to={`/blog/${post.slug}`}>{post.title}</Link>

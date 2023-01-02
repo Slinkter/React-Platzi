@@ -17,4 +17,10 @@ blogdata.push({
     content: "angular course",
     author: "somone 3",
 });
+blogdata.push({
+    title: "Que es javascript ?",
+    slug: "que-es-javascript",
+    content: "javascript course",
+    author: "somone 4",
+});
 export default blogdata;

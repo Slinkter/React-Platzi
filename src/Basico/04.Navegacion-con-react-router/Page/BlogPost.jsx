@@ -7,25 +7,28 @@ const BlogPost = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const auth = useAuth();
-
+    //
     const blogpost = blogdata.find((post) => post.slug === slug);
-
+    //
+    const handleBtnReturnToBlog = () => {
+        navigate(-1);
+    };
+    //
     const canDelete =
         auth.user?.isAdmin || blogpost.author === auth.user?.username;
 
-    const handleBtnReturnToBlog = () => {
-        /* navigate("/blog"); */
-        navigate(-1);
-    };
+    //
+    console.log("slug : /", slug);
 
     return (
         <div>
+            <hr />
             <h2>{blogpost.title}</h2>
+            <p>Content :{blogpost.content}</p>
+            <p>Author : {blogpost.author}</p>
             <button onClick={handleBtnReturnToBlog}> Volver al blog</button>
-            <p>Content:{blogpost.content}</p>
-            <p>author: {blogpost.author}</p>
-
             {canDelete && <button>Eliminar blogpost</button>}
+            <hr />
         </div>
     );
 };
