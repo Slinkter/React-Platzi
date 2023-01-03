@@ -1,7 +1,8 @@
 import React from "react";
+import { Navigate, NavLink } from "react-router-dom";
 import { useAuth } from "../provider/auth";
 
-const router = [];
+const routes = [];
 const r1 = {
     to: "/",
     text: "Home",
@@ -16,6 +17,7 @@ const r3 = {
     to: "/login",
     text: "Login",
     private: false,
+    publicOnly: true,
 };
 const r4 = {
     to: "/logout",
@@ -28,11 +30,11 @@ const r5 = {
     private: true,
 };
 
-router.push(r1);
-router.push(r2);
-router.push(r3);
-router.push(r4);
-router.push(r5);
+routes.push(r1);
+routes.push(r2);
+routes.push(r3);
+routes.push(r4);
+routes.push(r5);
 
 const Menu = () => {
     const auth = useAuth();
@@ -41,7 +43,29 @@ const Menu = () => {
 
     return (
         <nav>
-            <ul></ul>
+            <ul>
+                {routes.map((route) => {
+                    /* codigo */
+                    if (route.private && !auth.user) {
+                        return null;
+                    }
+                    if (route.publicOnly && auth.user) {
+                        return null;
+                    }
+
+                    const style = ({ isActive }) => ({
+                        color: isActive ? "red" : "blue",
+                    });
+
+                    return (
+                        <li key={route.to}>
+                            <NavLink style={style} to={route.to}>
+                                {route.text}
+                            </NavLink>
+                        </li>
+                    );
+                })}
+            </ul>
         </nav>
     );
 };
