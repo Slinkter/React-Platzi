@@ -66,6 +66,7 @@ function HomePage() {
                         key={todo.text}
                         text={todo.text}
                         completed={todo.completed}
+                        onEdit={() => console.log("editar", todo.text)}
                         onComplete={() => completeTodo(todo.text)}
                         onDelete={() => deleteTodo(todo.text)}
                     />
