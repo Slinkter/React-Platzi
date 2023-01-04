@@ -1,7 +1,7 @@
 import React from "react";
 
 const EditTodoPage = () => {
-    return <div></div>;
+    return <div>EditTodoPage</div>;
 };
 
 export { EditTodoPage };

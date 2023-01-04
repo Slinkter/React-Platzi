@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewTodoPage = () => {
-    return <div></div>;
+    return <div>NewTodoPage</div>;
 };
 
 export { NewTodoPage };
