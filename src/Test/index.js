@@ -1,4 +1,12 @@
 import React from "react";
+
+const index = () => {
+    return <div></div>;
+};
+
+export default index;
+
+/* import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Menu from "./nav/Menu";
 import BlogPage from "./Page/BlogPage";
@@ -30,3 +38,4 @@ const index = () => {
 };
 
 export default index;
+ */
