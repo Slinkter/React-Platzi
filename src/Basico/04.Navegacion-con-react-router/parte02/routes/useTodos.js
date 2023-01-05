@@ -63,6 +63,13 @@ function useTodos() {
         saveTodos(newTodos);
     };
 
+    //
+
+    const getTodo = (id) => {
+        const todoIndex = todos.findIndex((todo) => todo.id === id);
+        return todos[todoIndex];
+    };
+
     const state = {
         loading,
         error,
@@ -70,11 +77,13 @@ function useTodos() {
         completedTodos,
         searchValue,
         searchedTodos,
+        getTodo,
         //   openModal,
     };
 
     const stateUpdaters = {
         setSearchValue,
+
         addTodo,
         completeTodo,
         editTodo,
