@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./Basico/03.Manejo-profesional-del-estado/index";
+import App from "./Profesional/03.Curso-profesional-de-react-redux/indexUI";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(App);
+
+/* document.title = "solo para profesional-03- redux ";
+root.render(App); */
