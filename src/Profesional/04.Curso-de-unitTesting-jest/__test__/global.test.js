@@ -30,8 +30,35 @@ const reverseString = (str, callback) => {
 
 test("Probar un funcion callback", () => {
     reverseString("hola", (str) => {
-        expect(str).toBe("alo");
+        expect(str).toBe("aloh");
     });
 });
 
 // Clase 5/16
+const reverseString2 = (str) => {
+    return new Promise((resolve, reject) => {
+        if (!str) {
+            reject(Error("Error"));
+        }
+        resolve(str.split("").reverse().join(""));
+    });
+};
+
+test("probar una promesa", () => {
+    return reverseString2("hola").then((string) => {
+        expect(string).toBe("aloh");
+    });
+});
+
+test("probar async/await", async () => {
+    const string = await reverseString2("hola");
+    expect(string).toBe("aloh");
+});
+
+/* afterEach(() => console.log("Despues de cada prueba"));
+afterAll(() => console.log("Despues de todas prueba"));
+beforeEach(() => console.log("Antes de cada prueba"));
+beforeAll(() => console.log("Despues de todas prueba"));
+ */
+
+// clase 06-16

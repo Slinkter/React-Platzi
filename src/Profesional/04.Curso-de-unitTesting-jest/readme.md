@@ -57,3 +57,19 @@ Con lo que el primer parametro va a ser comparado.
 ## Ejecucion
 
     npm test // npm run test
+
+## Clase 06
+
+npx jest src/Profesional/04.Curso-de-unitTesting-jest/**test**/index.test.js
+
+    scripts: {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "eject": "react-scripts eject"
+    },
+
+    npm run test:watch
+
+    npx jest --coverage
