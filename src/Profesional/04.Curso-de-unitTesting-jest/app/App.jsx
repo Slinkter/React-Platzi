@@ -1,7 +1,9 @@
 import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
+import Checkout from "./containers/Checkout";
 import Home from "./containers/Home";
+import NotFound from "./containers/NotFound";
 
 // http://localhost:3000/#/new
 // http://localhost:3000/#/profile
@@ -11,10 +13,8 @@ const App = () => {
             <Layout>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/new" element={<p>new</p>} />
-                    <Route path="/profile" element={<p>profile</p>} />
-                    <Route path="/edit/:id" element={<p>edit</p>} />
-                    <Route path="/*" element={<p>Not found</p>} />
+                    <Route exact path="/checkout" component={Checkout} />
+                    <Route path="/*" element={<NotFound />} />
                 </Routes>
             </Layout>
         </HashRouter>
