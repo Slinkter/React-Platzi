@@ -17,23 +17,20 @@ const style = {
     hAlert: "Header-alert",
     icon: "fas fa-shopping-basket",
 };
-
-const Header = (props) => {
-    return (
-        <div className={style.h}>
-            <h1 className={style.hTitlle}>
-                <Link to="/">Team Store</Link>
-            </h1>
-            <div className={style.hCheckout}>
-                <Link to="/checkout">
-                    <i className="fas fa-shopping-basket" />
-                </Link>
-                {props.cart.length > 0 && (
-                    <div className={style.hAlert}>{props.cart.length}</div>
-                )}
-            </div>
+const Header = (props) => (
+    <div className="Header">
+        <h1 className="Header-title">
+            <Link to="/">Team Store</Link>
+        </h1>
+        <div className="Header-checkout">
+            <Link to="/checkout">
+                <i className="fas fa-shopping-basket" />
+            </Link>
+            {props.cart.length > 0 && (
+                <div className="Header-alert">{props.cart.length}</div>
+            )}
         </div>
-    );
-};
+    </div>
+);
 
 export default connect(mapStateToProps, mapDispatchToPros)(Header);
