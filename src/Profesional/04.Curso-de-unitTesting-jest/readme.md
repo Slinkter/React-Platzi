@@ -81,7 +81,16 @@ se instala paqued
     npm i enzyme // es una libreria para facilitar con prueba de los componentes
     npm install --save-dev @cfaester/enzyme-adapter-react-18
     npm install --save-dev jest-environment-jsdom
+    npm i history -D
 
 verificar las dependecias
 "test": "jest",
 "test:watch": "jest --watch",
+
+## Clase 09
+
+Probablemente muchos se hagan esta pregunta:
+¿Cuándo utilizar mount y cuándo utilizar shallow?
+.
+mount --> Cuando necesitas el DOM
+shallow --> Solo necesitas algo particular del componente. No ocupas todo el DOM
