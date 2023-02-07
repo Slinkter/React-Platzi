@@ -73,3 +73,15 @@ npx jest src/Profesional/04.Curso-de-unitTesting-jest/**test**/index.test.js
     npm run test:watch
 
     npx jest --coverage
+
+## Clase 07
+
+se instala paqued
+
+    npm i enzyme // es una libreria para facilitar con prueba de los componentes
+    npm install --save-dev @cfaester/enzyme-adapter-react-18
+    npm install --save-dev jest-environment-jsdom
+
+verificar las dependecias
+"test": "jest",
+"test:watch": "jest --watch",
