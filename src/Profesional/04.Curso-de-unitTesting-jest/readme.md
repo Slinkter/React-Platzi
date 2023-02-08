@@ -94,3 +94,5 @@ Probablemente muchos se hagan esta pregunta:
 .
 mount --> Cuando necesitas el DOM
 shallow --> Solo necesitas algo particular del componente. No ocupas todo el DOM
+
+## clase 10
