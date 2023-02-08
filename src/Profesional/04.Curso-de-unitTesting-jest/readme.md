@@ -96,3 +96,7 @@ mount --> Cuando necesitas el DOM
 shallow --> Solo necesitas algo particular del componente. No ocupas todo el DOM
 
 ## clase 10
+
+## Clase 13
+
+    npm install --save-dev jest-fetch-mock
