@@ -5,26 +5,24 @@ const TodoContext = React.createContext();
 
 function TodoProvider(props) {
     const {
-        item: stateTodos,
-        saveItem,
         loading,
         error,
+        item: data,
+        saveItem,
     } = useLocalStorage("TODOS_V1", []);
-
+    //
     const [openModel, setOpenModal] = React.useState(false);
-
     const [stateSearch, setStateSearch] = React.useState("");
-    const count_TotalTodos = stateTodos.length;
-    const count_CompletedTodos = stateTodos.filter(
-        (item) => !!item.completed
-    ).length;
+    //
+    const count_TotalTodos = data.length;
+    const count_CompletedTodos = data.filter((item) => !!item.completed).length;
 
     let searchedTodos = [];
 
     if (!stateSearch.length >= 1) {
-        searchedTodos = stateTodos;
+        searchedTodos = data;
     } else {
-        searchedTodos = stateTodos.filter((item) => {
+        searchedTodos = data.filter((item) => {
             const todoText = item.text.toLowerCase();
             const searchText = stateSearch.toLowerCase();
             return todoText.includes(searchText);
@@ -34,7 +32,7 @@ function TodoProvider(props) {
     //metodo , cambiar de false a true saveItem
 
     const addTodo = (text) => {
-        const newTodos = [...stateTodos]; // copy array
+        const newTodos = [...data]; // copy array
         newTodos.push({
             competed: false,
             text,
@@ -43,15 +41,15 @@ function TodoProvider(props) {
     };
 
     const onUpdateItem = (text) => {
-        const index = stateTodos.findIndex((item) => item.text === text); // si coincide el text ,coger index , sale un numero
-        const newTodos = [...stateTodos]; // copy array
+        const index = data.findIndex((item) => item.text === text); // si coincide el text ,coger index , sale un numero
+        const newTodos = [...data]; // copy array
         newTodos[index].completed = true; //cambiar a true
         saveItem(newTodos);
     };
 
     const onDeleteItem = (text) => {
-        const index = stateTodos.findIndex((item) => item.text === text); // si coincide el text ,coger
-        const newTodos = [...stateTodos];
+        const index = data.findIndex((item) => item.text === text); // si coincide el text ,coger
+        const newTodos = [...data];
         newTodos.splice(index, 1);
         saveItem(newTodos);
     };

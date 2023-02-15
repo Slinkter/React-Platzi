@@ -1,6 +1,6 @@
 import React from "react";
 
-function useLocalStorage(itemName, initialValue) {
+function useLocalStorage(dbName, initialValue) {
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(false);
     const [item, setItem] = React.useState(initialValue);
@@ -9,35 +9,37 @@ function useLocalStorage(itemName, initialValue) {
         setTimeout(() => {
             try {
                 let parsedItem;
-                const db_ls = localStorage.getItem(itemName);
+                const db_ls = localStorage.getItem(dbName);
 
                 if (!db_ls) {
-                    const stringValue = JSON.stringify(initialValue); // tranformacion a string
-                    localStorage.setItem(itemName, stringValue);
-                    parsedItem = initialValue;
+                    const value = JSON.stringify(initialValue); // string <-- []
+                    localStorage.setItem(dbName, value);
+                    //
+                    parsedItem = initialValue; // parseItem <-- []
                 } else {
                     parsedItem = JSON.parse(db_ls); // transformacion a objeto
                 }
 
                 setItem(parsedItem);
                 setLoading(false);
+                setError(false);
             } catch (error) {
                 setError(error);
             }
-        }, 2000);
-    }, [itemName, initialValue]);
+        }, 1000);
+    }, [dbName, initialValue]);
 
-    const saveItem = (newItem) => {
+    const saveItem = (array) => {
         try {
-            const stringifiedItem = JSON.stringify(newItem);
-            localStorage.setItem(itemName, stringifiedItem);
-            setItem(newItem);
+            const value = JSON.stringify(array);
+            localStorage.setItem(dbName, value);
+            setItem(array);
         } catch (error) {
             setError(error);
         }
     };
 
-    return { item, saveItem, loading, error };
+    return { loading, error, item, saveItem };
 }
 
 export { useLocalStorage };
