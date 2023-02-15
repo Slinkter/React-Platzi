@@ -8,6 +8,7 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
+        "@xstate/react": "^3.1.2",
         "antd": "^4.22.8",
         "axios": "^0.27.2",
         "classnames": "^2.3.2",
@@ -18,10 +19,12 @@
         "react-redux": "^8.0.5",
         "react-router-dom": "^6.6.1",
         "react-scripts": "5.0.1",
+        "react-stately": "^3.20.0",
         "redux": "^4.2.0",
         "redux-thunk": "^2.4.1",
         "sass": "^1.57.1",
-        "web-vitals": "^2.1.4"
+        "web-vitals": "^2.1.4",
+        "xstate": "^4.35.4"
     },
     "scripts": {
         "start": "react-scripts start",
