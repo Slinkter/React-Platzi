@@ -29,19 +29,19 @@ function TodoProvider(props) {
         });
     }
 
-    //metodo , cambiar de false a true saveItem
-
+    // funcion que va en modal
     const addTodo = (text) => {
         const newTodos = [...data]; // copy array
-        newTodos.push({
+        const item = {
             competed: false,
-            text,
-        }); //cambiar a true
+            text: text,
+        };
+        newTodos.push(item);
         saveItem(newTodos);
     };
 
     const onUpdateItem = (text) => {
-        const index = data.findIndex((item) => item.text === text); // si coincide el text ,coger index , sale un numero
+        const index = data.findIndex((item) => item.text === text); // buscar el text ,coger index , sale un numero
         const newTodos = [...data]; // copy array
         newTodos[index].completed = true; //cambiar a true
         saveItem(newTodos);
