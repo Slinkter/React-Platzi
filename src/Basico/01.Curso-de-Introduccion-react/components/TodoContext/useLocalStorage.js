@@ -10,7 +10,6 @@ function useLocalStorage(dbName, initialValue) {
             try {
                 let parsedItem;
                 const db_ls = localStorage.getItem(dbName);
-
                 if (!db_ls) {
                     const value = JSON.stringify(initialValue); // string <-- []
                     localStorage.setItem(dbName, value);
@@ -19,7 +18,6 @@ function useLocalStorage(dbName, initialValue) {
                 } else {
                     parsedItem = JSON.parse(db_ls); // transformacion a objeto
                 }
-
                 setItem(parsedItem);
                 setLoading(false);
                 setError(false);
