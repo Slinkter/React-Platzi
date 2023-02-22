@@ -19,7 +19,6 @@ function useLocalStorage(dbName, initialValue) {
                 } else {
                     parsed = JSON.parse(data);
                 }
-
                 setItem(parsed);
                 setLoading(false);
                 setSincronizedItem(true);
@@ -29,11 +28,11 @@ function useLocalStorage(dbName, initialValue) {
         }, 3000);
     }, [sincronizedItem]);
 
-    const saveItem = (newItem) => {
+    const saveItem = (newArray) => {
         try {
-            const stringifiedItem = JSON.stringify(newItem);
+            const stringifiedItem = JSON.stringify(newArray);
             localStorage.setItem(dbName, stringifiedItem);
-            setItem(newItem);
+            setItem(newArray);
         } catch (error) {
             setError(error);
         }

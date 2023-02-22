@@ -84,7 +84,6 @@ function App() {
             )}
 
             <CreateTodoButton setOpenModal={setOpenModal} />
-
             <ChangeAlert sincronize={sincronizeTodos} />
         </React.Fragment>
     );

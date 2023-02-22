@@ -31,10 +31,11 @@ function useTodos() {
 
     const addTodo = (text) => {
         const newTodos = [...todos];
-        newTodos.push({
+        const item = {
             completed: false,
             text,
-        });
+        };
+        newTodos.push(item);
         saveTodos(newTodos);
     };
 

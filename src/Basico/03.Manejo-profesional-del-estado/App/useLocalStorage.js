@@ -2,14 +2,13 @@ import React, { useReducer } from "react";
 
 function useLocalStorage(itemName, initialValue) {
     // -> Object Json
-    const actionTypes = {
-        error: "ERROR",
-        success: "SUCCESS",
-        save: "SAVE",
-        sincronize: "SINCRONIZE",
-    };
+    const actionTypes = {};
+    actionTypes.error = "ERROR";
+    actionTypes.success = "SUCCESS";
+    actionTypes.save = "SAVE";
+    actionTypes.sincronize = "SINCRONIZE";
     // -> Funcion
-    const reducerObject = (state, payload) => ({
+    const reducerObj = (state, payload) => ({
         [actionTypes.error]: {
             ...state,
             error: true,
@@ -31,10 +30,11 @@ function useLocalStorage(itemName, initialValue) {
             loading: true,
         },
     });
-    // TODO:
     // -> funcion -- no entiendo
-    const reducer = (state, action) =>
-        reducerObject(state, action.payload)[action.type] || state;
+    const reducer = (state, action) => {
+        return reducerObj(state, action.payload)[action.type] || state;
+    };
+
     // -> funcion
     // initialValue = []
     const initialState = ({ initialValue }) => ({
@@ -92,7 +92,8 @@ function useLocalStorage(itemName, initialValue) {
         } catch (error) {
             onError(error);
         }
-    }, [initialValue, itemName, sincronizedItem]);
+    }, []);
+    // [initialValue, itemName, sincronizedItem]
 
     // funcion
     const saveItem = (newItem) => {
