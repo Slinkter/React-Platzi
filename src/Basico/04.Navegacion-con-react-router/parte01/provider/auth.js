@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 //1. db
 const adminList = ["Liam", "Jhonny"];
@@ -7,13 +7,11 @@ const AuthContext = createContext();
 //3. componet
 function AuthProvider(props) {
     console.log("authprovider ejecutando");
-    //
     const { children } = props; // menu y routes
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    //
     console.log(children);
-
+    //
     const login = ({ username }) => {
         const isAdmin = adminList.find((admin) => admin === username);
         setUser({ username, isAdmin });
