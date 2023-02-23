@@ -10,7 +10,7 @@ const LoginPage = () => {
         e.preventDefault();
         auth.login({ username });
     };
-    //
+    // si ya esta logeado re-direccionar
     if (auth.user) {
         return <Navigate to="/profile" />;
     }
