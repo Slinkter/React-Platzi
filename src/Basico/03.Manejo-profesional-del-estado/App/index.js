@@ -14,12 +14,8 @@ import { Modal } from "../Modal";
 import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
-    //
     document.title = "03.Manejo-profesional-del-estado";
-
-    //
     const { state, stateUpdaters } = useTodos();
-    //
     const {
         error,
         loading,
@@ -29,7 +25,6 @@ function App() {
         openModal,
         searchValue,
     } = state;
-    //
     const {
         setOpenModal,
         addTodo,

@@ -14,8 +14,8 @@ function TodoProvider(props) {
     const [openModel, setOpenModal] = React.useState(false);
     const [stateSearch, setStateSearch] = React.useState("");
     //
-    const count_TotalTodos = data.length;
-    const count_CompletedTodos = data.filter((item) => !!item.completed).length;
+    const totalTodos = data.length;
+    const completedTodos = data.filter((item) => !!item.completed).length;
 
     let searchedTodos = [];
 
@@ -29,19 +29,19 @@ function TodoProvider(props) {
         });
     }
 
-    // funcion que va en modal
+    //metodo , cambiar de false a true saveItem
+
     const addTodo = (text) => {
         const newTodos = [...data]; // copy array
-        const item = {
+        newTodos.push({
             competed: false,
-            text: text,
-        };
-        newTodos.push(item);
+            text,
+        }); //cambiar a true
         saveItem(newTodos);
     };
 
     const onUpdateItem = (text) => {
-        const index = data.findIndex((item) => item.text === text); // buscar el text ,coger index , sale un numero
+        const index = data.findIndex((item) => item.text === text); // si coincide el text ,coger index , sale un numero
         const newTodos = [...data]; // copy array
         newTodos[index].completed = true; //cambiar a true
         saveItem(newTodos);
@@ -61,8 +61,8 @@ function TodoProvider(props) {
             value={{
                 loading,
                 error,
-                count_TotalTodos,
-                count_CompletedTodos,
+                totalTodos,
+                completedTodos,
                 stateSearch,
                 setStateSearch,
                 searchedTodos,

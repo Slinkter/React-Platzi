@@ -1,26 +1,31 @@
 const blogdata = [];
-blogdata.push({
-    title: "Que es react ?",
-    slug: "que-es-react",
-    content: "react course",
+const obj01 = {
     author: "somone 1",
-});
-blogdata.push({
-    title: "Que es vue ?",
-    slug: "que-es-vue",
-    content: "vue course",
+    content: "react course",
+    slug: "que-es-react",
+    title: "Que es react ?",
+};
+const obj02 = {
     author: "somone 2",
-});
-blogdata.push({
-    title: "Que es angular ?",
-    slug: "que-es-angular",
     content: "angular course",
+    slug: "que-es-angular",
+    title: "Que es angular ?",
+};
+const obj03 = {
     author: "somone 3",
-});
-blogdata.push({
-    title: "Que es javascript ?",
-    slug: "que-es-javascript",
-    content: "javascript course",
+    content: "vue course",
+    slug: "que-es-vue",
+    title: "Que es vue ?",
+};
+const obj04 = {
     author: "somone 4",
-});
+    content: "javascript course",
+    slug: "que-es-javascript",
+    title: "Que es javascript ?",
+};
+
+blogdata.push(obj01);
+blogdata.push(obj02);
+blogdata.push(obj03);
+blogdata.push(obj04);
 export default blogdata;

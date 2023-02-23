@@ -1,14 +1,15 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-//
+// context
+import { AuthProvider, AuthRoute } from "./provider/auth";
+// ---> Page
+import Menu from "./Page/Menu";
 import BlogPage from "./Page/BlogPage";
 import BlogPost from "./Page/BlogPost";
 import HomePage from "./Page/HomePage";
 import LoginPage from "./Page/LoginPage";
 import LogoutPage from "./Page/LogoutPage";
-import Menu from "./Page/Menu";
 import ProfilePage from "./Page/ProfilePage";
-import { AuthProvider, AuthRoute } from "./provider/auth"; // context
 
 /*
     /#/
@@ -16,7 +17,6 @@ import { AuthProvider, AuthRoute } from "./provider/auth"; // context
     /#/profile
     /#/dasdasdadsa
 */
-
 const index = () => {
     return (
         <React.Fragment>
