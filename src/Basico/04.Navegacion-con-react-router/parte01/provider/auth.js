@@ -6,14 +6,12 @@ const adminList = ["Liam", "Jhonny"];
 const AuthContext = createContext();
 //3. componet
 function AuthProvider(props) {
-    console.log("authprovider ejecutando");
     const { children } = props; // menu y routes
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    console.log(children);
     //
     const login = ({ username }) => {
-        const isAdmin = adminList.find((admin) => admin === username);
+        const isAdmin = adminList.find((admin) => admin === username); // return true o undefined
         setUser({ username, isAdmin });
         navigate("/profile");
     };
@@ -31,12 +29,13 @@ function AuthProvider(props) {
 // no va a acceder a esta ruta si el usuario es null
 // se re-direcciona a login
 function AuthRoute(props) {
+    const { children } = props; // ProfilePage = {children}
     const auth = useContext(AuthContext);
-    const { children } = props;
+    console.log(auth);
     if (!auth.user) {
         return <Navigate to="/login" />;
     }
-    console.log(auth);
+
     return children;
 }
 //5.
