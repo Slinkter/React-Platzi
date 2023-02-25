@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChangeAlert } from "../../ui/ChangeAlert";
 import { CreateTodoButton } from "../../ui/CreateTodoButton";
 import { EmptyTodos } from "../../ui/EmptyTodos";
-import { Modal } from "../../ui/Modal";
 import { TodoCounter } from "../../ui/TodoCounter";
-import { TodoForm } from "../../ui/TodoForm";
 import { TodoHeader } from "../../ui/TodoHeader";
 import { TodoItem } from "../../ui/TodoItem";
 import { TodoList } from "../../ui/TodoList";
@@ -24,18 +22,11 @@ function HomePage() {
         searchedTodos,
         totalTodos,
         completedTodos,
-        //openModal,
         searchValue,
     } = state;
 
-    const {
-        //      setOpenModal,
-        //    addTodo,
-        completeTodo,
-        deleteTodo,
-        setSearchValue,
-        sincronizeTodos,
-    } = stateUpdaters;
+    const { completeTodo, deleteTodo, setSearchValue, sincronizeTodos } =
+        stateUpdaters;
 
     return (
         <React.Fragment>
@@ -76,12 +67,6 @@ function HomePage() {
                     />
                 )}
             </TodoList>
-
-            {/* !!openModal && (
-                <Modal>
-                    <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
-                </Modal>
-            ) */}
 
             <CreateTodoButton onclick={() => navigate("/new")} />
 
