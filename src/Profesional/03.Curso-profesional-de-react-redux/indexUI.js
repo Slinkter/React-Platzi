@@ -1,5 +1,6 @@
 import React from "react";
 import App from "./App";
+
 import { pokemonsReducer } from "./reducers/pokemons";
 import { Provider } from "react-redux";
 import {

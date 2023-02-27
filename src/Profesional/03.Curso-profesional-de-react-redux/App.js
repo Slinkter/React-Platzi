@@ -4,13 +4,10 @@ import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
 import logo from "./statics/logo.svg";
 import { useEffect } from "react";
-import { getPokemon, getPokemonDetail } from "./api";
-
-//
-import { useDispatch } from "react-redux";
-import { getPokemonsWithDetails, setPokemons } from "./actions";
+import { getPokemon } from "./api";
+import { getPokemonsWithDetails } from "./actions";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 function App() {
     const pokemons = useSelector((state) => state.pokemons);
     const dispatch = useDispatch();
@@ -40,5 +37,4 @@ function App() {
     );
 }
 
-/* export default App; */
 export default App;

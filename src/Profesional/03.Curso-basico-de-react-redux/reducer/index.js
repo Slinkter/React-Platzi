@@ -14,7 +14,6 @@ const reducer = (state, action) => {
                 ...state,
                 myList: [...state.myList, action.payload],
             };
-
         case types.deleteFavorite:
             return {
                 ...state,
@@ -22,7 +21,6 @@ const reducer = (state, action) => {
                     (item) => item.id !== action.payload
                 ),
             };
-
         case types.loginRequest:
             return { ...state, user: action.payload };
         case types.logoutRequest:
