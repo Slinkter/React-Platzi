@@ -14,6 +14,11 @@ function useTodos() {
     const totalTodos = data.length;
     // -->
     const [searchValue, setSearchValue] = React.useState("");
+    /*     const [openModal, setOpenModal] = React.useState(false); */
+
+    const completedTodos = todos.filter((todo) => !!todo.completed).length;
+    const totalTodos = todos.length;
+
     let searchedTodos = [];
 
     if (!searchValue.length >= 1) {
@@ -77,7 +82,6 @@ function useTodos() {
         searchValue,
         searchedTodos,
         getTodo,
-        //   openModal,
     };
 
     const stateUpdaters = {
