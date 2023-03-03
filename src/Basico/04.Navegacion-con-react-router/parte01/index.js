@@ -11,12 +11,6 @@ import LoginPage from "./Page/LoginPage";
 import LogoutPage from "./Page/LogoutPage";
 import ProfilePage from "./Page/ProfilePage";
 
-/*
-    /#/
-    /#/blog
-    /#/profile
-    /#/dasdasdadsa
-*/
 const index = () => {
     return (
         <React.Fragment>
@@ -47,3 +41,9 @@ const index = () => {
 };
 
 export default index;
+/*
+/#/
+/#/blog
+ /#/profile
+/#/dasdasdadsa
+*/
