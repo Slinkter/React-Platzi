@@ -1,14 +1,16 @@
-# 1.Introduccion Composición de componentes
+# Introduccion Composición de componentes
 
-## Principios de diseño en React
+# 1.Principios de diseño en React
+
+## A) Filosofia de React para Team Facebook
 
 ### Abstracciones comunes:
 
-- se refiere que a React no quiere incluir código inútil en su core, código que sea demasiado especifico para caso de uso demasiado concreto. Sin embargo, existen excepciones.
+- Se refiere que a React no quiere incluir código inútil en su core, código que sea demasiado especifico para caso de uso demasiado concreto. Sin embargo, existen excepciones.
 
 ### Interoperabilidad:
 
-- React trata de trabajar bien con otras bibliotecas de interfaz de usuario.
+- React trata de trabajar bien con otras bibliotecas de interfaz de usuario .
 
 ### Estabilidad:
 
@@ -20,34 +22,67 @@
 
 ### Experiencia de desarrollo:
 
-- el objetivo de React no es solo que con su código podamos solucionar nuestro problemas también van a buscar una solución que nos den una buena experiencia y disfrute.
+- el objetivo de React no es solo que con su código podamos solucionar nuestro problemas también van a buscar una solución que nos den una buena experiencia y disfrute. react context fue un ejemplo de cambio en actualizaciones para usarlo.
 
 ### Implementación:
 
 - Siempre que sea posible React preferirá código aburrido a código elegante. El código es descartable y cambia a menudo. Así que es importante que no introduzca nuevas abstracciones internas al menos que sea absolutamente necesario. Código detallado que sea fácil de mover, cambiar y eliminar es preferido sobre código elegante que esté abstraído de manera prematura y que sea difícil de cambiar.
-  Optimizado para instrumentación: React siempre va a buscar el nombre mas distintivos y detallados(no necesariamente nombres largos).
+
+### Optimizado para instrumentación:
+
+- React siempre va a buscar el nombre mas distintivos y detallados(no necesariamente nombres largos).
 
 ### Dogfooding:
 
-- significa que React va a periodizar la implementación de funcionalidades que necesite su empresa, Facebook, Esto tiene la ventaja no solo para su empresa sino también a todos los desarrolladores que utiliza React.
+- React va a priorizar a Facebook en temas de mejoras de implentacion y codigo o mantenimiento , Esto tiene la ventaja no solo para su empresa sino también a todos los desarrolladores que utiliza React.
 
-### Planificación:
+## B) Filosofia de React para ti
+
+### 1)Planificación:
 
 - Acá es donde nosotros dividimos nuestras responsabilidades de los que debemos hacer y lo que tiene que hacer React por detrás con las descripciones que le hacemos. react tranforma nuestro codigo para que funciones en htlm
 
-### Configuración:
+### 2)Configuración :
 
-- React cree que una configuración global no funciona bien con la composición. Dado que la composición es central en React, no proveen configuración global en el código, no deja entrar al codigo profundo. React siempre se asegurara que nosotros tengamos compatibilidad entre cualquier librería y aplicación que utilicemos React.
+- React siempre se asegurara que nosotros tengamos compatibilidad entre cualquier librería y aplicación que utilicemos React.React no permite cambiar el core en tiempo de ejecucion.
 
-### Depuración:
+### 3) Depuración:
 
-- se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.
+- se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.Mensaje de Errores de logica en consola.
 
-### Composición:
+### 4) Composicion de componentes(patron)
 
-# 2 . Render props y render functions
+No usa react context pues es un reemplazo
+Es un patron o principio, indica que cada componente debe darnos mucha libertad para elegir donde y como usarlo.
+
+Cada componente debe realizar una tarea muy específica, pero no debe de decirnos como usar esa solución que nos brinda, debe de ser flexible al momento de utilizarlo Nos permitirá tener componentes mucho más fáciles de integrar al resto de componentes.
+Nos facilitará reutilizar o hacer cambios en nuestros componentes.
+
+- La colocación de estado es un problemas.
+- Principio de la Maxima cercania a la relevancias.
+- Principio Stateful vs stateless : no mezclar UI con lógica.
+
+      -App (estado )
+      **TodoHeader
+      ---TodoCounter (stateless : solo consume la data del estado)
+      ---TodoSearch (statefull : tiene un estado distinto)
+      **TodoList
+      ---TodoItem (statefull)
 
 - Es un patron de diseño
+- Se define un estado y se pasa uno solo estado a los componentes
+- Toda la informacion de variables esta en App y se da todos los componentes.
+
+      - App (state)
+      -- TodoHeader
+      --- TodoCounter
+      --- TodoSearch (state)
+       -- TodoList
+      --- Array.map( item => <Component {...state}>)
+
+- cuando aumenta la complejidad se usa react context.
+
+# 2 . Render props y render functions
 
 #### Render props
 
@@ -60,6 +95,8 @@
 
     entregar informacion por una funcion y renderizar la funcion
     Es un patrón , reciben una función para enviar la información
+
+### React-Children y React CloneElement
 
 # 3. High Order Components (HOC)
 
@@ -90,40 +127,7 @@ console.log(sumTotal); // Output: 3
 
 ```
 
-## Principios para la comunidad
-
-### 1. Planificación
-
-Antes de empezar cualquier proyecto debemos definir qué responsabilidades le vamos a delegar a React y cuales dependen de nosotros.
-
-### 2.Configuración
-
-Nosotros no podemos, o mejor, no deberíamos modificar directamente el código de React, ya que esto podría causar conflictos a la hora de añadir nuevas herramientas al entorno de nuestro proyecto.
-
-### 3.Depuración
-
-React siempre nos va a dejar pequeñas pistas cada vez que ocurra un error dentro de nuestra aplicación, para así poder encontrar cuál es el foco del problema y saber que deberíamos cambiar.
-
-### 4.Composicion
-
-Principio de composición de componentes
-La Composición de componentes ,es un patron o principio, indica que cada componente debe darnos mucha libertad para elegir donde y como usarlo Cada componente debe realizar una tarea en específica, pero no debe de decirnos como usar esa solución que nos brinda, debe de ser flexible al momento de utilizarlo Nos permitirá tener componentes mucho más fáciles de integrar al resto de componentes Nos facilitará reutilizar o hacer cambios en nuestros componentes.
-
-- La colocación de estado es un problemas.
-- Maxima cercania a la relevancias.
-- poner acerca al App.
-- Stateful vs stateless : no mezclar UI con lógica.
-
-      -App (estado general compartido)
-      --TodoHeader
-      ---TodoCounter (stateless)
-      ---TodoSearch (statefull)
-      --TodoList
-      ---TodoItem (statefull)
-
-# Render props vs HOCs vs React Hooks
-
-      Desde ahora cabe aclarar que cada herramienta está pensada para realizar diferentes tareas, por lo tanto no es una batalla como tal, sino más bien una comparación entre la funcionalidad de cada uno de estos patrones.
+# Render-props vs HOCs vs React-Hooks
 
 - Render props
 
