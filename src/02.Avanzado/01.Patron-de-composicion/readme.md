@@ -50,7 +50,7 @@
 
 - se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.Mensaje de Errores de logica en consola.
 
-### 4) Composicion de componentes(patron)
+### 4)Patron de Composicion de componentes(patron)
 
 No usa react context pues es un reemplazo
 Es un patron o principio, indica que cada componente debe darnos mucha libertad para elegir donde y como usarlo.
@@ -82,7 +82,7 @@ Nos facilitará reutilizar o hacer cambios en nuestros componentes.
 
 - cuando aumenta la complejidad se usa react context.
 
-# 2 . Render props y render functions
+### 5)Patron de Render props y render functions
 
 #### Render props
 
