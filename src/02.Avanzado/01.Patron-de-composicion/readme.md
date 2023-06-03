@@ -84,6 +84,8 @@ Nos facilitará reutilizar o hacer cambios en nuestros componentes.
 
 ### 5)Patron de Render props y render functions
 
+es la continuacion del patron de composicion de componentes 
+
 #### Render props
 
     renderizar components segun su estado
