@@ -50,7 +50,9 @@
 
 - se refiere que a React siempre va a dejarte pistas un rastro predecible, donde podamos buscar los errores en nuestra aplicación.Mensaje de Errores de logica en consola.
 
-### 4)Patron de Composicion de componentes(patron)
+---
+
+### 4) Patron de Composicion de componentes(patron)
 
 No usa react context pues es un reemplazo
 Es un patron o principio, indica que cada componente debe darnos mucha libertad para elegir donde y como usarlo.
@@ -82,34 +84,53 @@ Nos facilitará reutilizar o hacer cambios en nuestros componentes.
 
 - cuando aumenta la complejidad se usa react context.
 
+---
+
 ### 5)Patron de Render props y render functions
 
-es la continuacion del patron de composicion de componentes 
+es la continuacion del patron de composicion de componentes
+ahora tenemos dos tipos propiedades del componente  
+ _ props normal ( valor o variable)
+_ props render (devuelve un component o elemento)
 
-#### Render props
+Ya no es necesario renderizar en el {children} sino todo sube a la section de propiedad.Donde la propiedad render es la principal
 
-    renderizar components segun su estado
-    Las render props son una técnica avanzada que nos permite reutilizar componentes y lógica, para no tener que reinventar la rueda.
+```
+<Component >
+      {error & <Error/>}
+      {loading & <Loading/>}
+      <Item/>
+</Compontent>
 
-    Esta técnica se basa en pasar una función como prop a un componente, dicha función se encargará de renderizar lo que queremos que contenga este componente, removiendo así la lógica del render hacia otra parte y permitiéndonos reutilizar la lógica que contenga la función.
+```
 
-#### Render functions
+```
+<Component
+      error={error}
+      loading={loading}
+      onError = {() => <Error/>}
+      onLoading={() => <Loading/>}
+      render = { <Item/>}
+/>
 
-    entregar informacion por una funcion y renderizar la funcion
-    Es un patrón , reciben una función para enviar la información
+```
 
-### React-Children y React CloneElement
+#### React-Children y React CloneElement
 
-# 3. High Order Components (HOC)
+- son hooks para para pasar propiedades especiales a los components hijos
 
-Es un patron de diseño.
-Las funciones como las conocemos pueden devolvernos un valor en sus returns, pero estas funciones de “orden superior”, son funciones que devuelven otras funciones, es decir Es una funcion de vuelven otra funcion.
+---
 
-Si llamamos a la HOC y le enviamos un parámetro no tendremos todavía un resultado, como está devolviendo otra función tenemos que llamar a esa función que obtenemos luego de llamar a la de orden superior, enviarle los nuevos parámetros que necesita la función de retorno y entonces si, obtendremos nuestro resultado.
+### 6) High Order Components (HOC)
 
-Los high order components (o componentes de orden superior) son componentes que reciben un componente y retornan otro componente con nuevas props o elementos, lo cual nos permite reutilizar lógica dentro de varios componentes.
+- Es un patron de diseño.
+  Las funciones como las conocemos pueden devolvernos un valor en sus returns, pero estas funciones de “orden superior”, son funciones que devuelven otras funciones, es decir Es una funcion de vuelven otra funcion.
 
-Y con este HOC ahora podemos reutilizar este código, y ya no tenemos que crear un estado local para cada componente, sino que le delegamos esta tarea a otro componente.
+- Si llamamos a la HOC y le enviamos un parámetro no tendremos todavía un resultado, como está devolviendo otra función tenemos que llamar a esa función que obtenemos luego de llamar a la de orden superior, enviarle los nuevos parámetros que necesita la función de retorno y entonces si, obtendremos nuestro resultado.
+
+- Los high order components (o componentes de orden superior) son componentes que reciben un componente y retornan otro componente con nuevas props o elementos, lo cual nos permite reutilizar lógica dentro de varios componentes.
+
+- Y con este HOC ahora podemos reutilizar este código, y ya no tenemos que crear un estado local para cada componente, sino que le delegamos esta tarea a otro componente.
 
 ```
 // --> Definición del HOC
@@ -129,7 +150,7 @@ console.log(sumTotal); // Output: 3
 
 ```
 
-# Render-props vs HOCs vs React-Hooks
+## Conclusion : Render-props vs HOCs vs React-Hooks
 
 - Render props
 
