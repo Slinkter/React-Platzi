@@ -123,6 +123,8 @@ Ya no es necesario renderizar en el {children} sino todo sube a la section de pr
 
 ### 6) High Order Components (HOC)
 
+- high ordern funcion y curring , estas funciones de orden superior devuelven funciones , pueder recibir parametros
+
 - Es un patron de diseño.
   Las funciones como las conocemos pueden devolvernos un valor en sus returns, pero estas funciones de “orden superior”, son funciones que devuelven otras funciones, es decir Es una funcion de vuelven otra funcion.
 
