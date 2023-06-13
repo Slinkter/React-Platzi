@@ -1,6 +1,7 @@
 import React from "react";
 import ExampleUseState from "./ExampleUseState";
 import ExampleClassState from "./ExampleClassState";
+import UseReducer from "./UseReducer";
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
       }}
     >
       <ExampleUseState nameprops="Use State" />
-      <ExampleClassState nameprops="Class State" />
+      {/*   <ExampleClassState nameprops="Class State" /> */}
+      <UseReducer />
     </div>
   );
 };

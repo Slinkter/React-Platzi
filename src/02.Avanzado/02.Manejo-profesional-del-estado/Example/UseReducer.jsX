@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 const initState = {
   value: "",
   error: false,
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
     case actionTypes.error:
       return { ...state, error: true, loading: false };
     case actionTypes.confirm:
-      return { ...state, loading: false, error: false, confirm: true };
+      return { ...state, loading: false, error: false, confirmed: true };
     case actionTypes.write:
       return { ...state, value: action.payload };
     case actionTypes.check:
