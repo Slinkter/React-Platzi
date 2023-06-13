@@ -4,37 +4,38 @@ import { TodoForm } from "../../ui/TodoForm";
 import { useTodos } from "../useTodos";
 
 const EditTodoPage = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    const { id } = useParams();
-    const idTodo = Number(id);
+  const { id } = useParams();
+  const idTodo = Number(id);
 
-    const { state, stateUpdaters } = useTodos();
-    const { getTodo, loading } = state;
-    const { editTodo } = stateUpdaters;
+  const { state, stateUpdaters } = useTodos();
 
-    let todoText;
+  const { getTodo, loading } = state;
+  const { editTodo } = stateUpdaters;
 
-    if (location.state?.todo) {
-        todoText = location.state.todo.text;
-    } else if (loading) {
-        return <p>cargando ...</p>;
-    } else {
-        const todo = getTodo(idTodo);
-        todoText = todo.text;
-    }
+  let todoText;
 
-    return (
-        <div>
-            <h1>EditTodoPage</h1>
-            <TodoForm
-                label="edita tu todo"
-                defaultTodoText={todoText}
-                submitText="editar"
-                submitEvent={(newText) => editTodo(idTodo, newText)}
-            />
-        </div>
-    );
+  if (location.state?.todo) {
+    todoText = location.state.todo.text;
+  } else if (loading) {
+    return <p>cargando ...</p>;
+  } else {
+    const todo = getTodo(idTodo);
+    todoText = todo.text;
+  }
+
+  return (
+    <div>
+      <h1>EditTodoPage</h1>
+      <TodoForm
+        label="edita tu todo"
+        defaultTodoText={todoText}
+        submitText="editar"
+        submitEvent={(newText) => editTodo(idTodo, newText)}
+      />
+    </div>
+  );
 };
 
 export { EditTodoPage };
