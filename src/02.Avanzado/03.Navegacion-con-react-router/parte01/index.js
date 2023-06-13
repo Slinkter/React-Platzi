@@ -12,32 +12,32 @@ import LogoutPage from "./Page/LogoutPage";
 import ProfilePage from "./Page/ProfilePage";
 
 const index = () => {
-    return (
-        <React.Fragment>
-            <HashRouter>
-                <AuthProvider>
-                    <Menu />
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/blog" element={<BlogPage />}>
-                            <Route path=":slug" element={<BlogPost />} />
-                        </Route>
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/logout" element={<LogoutPage />} />
-                        <Route
-                            path="/profile"
-                            element={
-                                <AuthRoute>
-                                    <ProfilePage />
-                                </AuthRoute>
-                            }
-                        />
-                        <Route path="*" element={<p> Not Found </p>} />
-                    </Routes>
-                </AuthProvider>
-            </HashRouter>
-        </React.Fragment>
-    );
+  return (
+    <>
+      <HashRouter>
+        <AuthProvider>
+          <Menu />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog" element={<BlogPage />}>
+              <Route path=":slug" element={<BlogPost />} />
+            </Route>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/logout" element={<LogoutPage />} />
+            <Route
+              path="/profile"
+              element={
+                <AuthRoute>
+                  <ProfilePage />
+                </AuthRoute>
+              }
+            />
+            <Route path="*" element={<p> Not Found </p>} />
+          </Routes>
+        </AuthProvider>
+      </HashRouter>
+    </>
+  );
 };
 
 export default index;
