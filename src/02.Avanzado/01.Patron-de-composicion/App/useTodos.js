@@ -33,7 +33,7 @@ function useTodos() {
     const newTodos = [...todos];
     const item = {
       completed: false,
-      text,
+      text: text,
     };
     newTodos.push(item);
     saveTodos(newTodos);
