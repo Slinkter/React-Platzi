@@ -1,18 +1,18 @@
-import React from "react";
+// Librerias
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setFavorite, deleteFavorite } from "../actions";
-import PropTypes from "prop-types";
 // CSS
 import "../assets/styles/components/CarouselItem.scss";
 // Icons
 import playIcon from "../assets/static/play-icon.png";
 import plusIcon from "../assets/static/plus-icon.png";
 import removeIcon from "../assets/static/remove-icon.png";
-
-// se agregan como props a component CarouselItem
-// from actions
-const mapDispatchTopros = {
+// Actions
+import { setFavorite, deleteFavorite } from "../tools/actions";
+// --->
+const MapDispatchToProps = {
   setFavorite,
   deleteFavorite,
 };
@@ -20,19 +20,20 @@ const mapDispatchTopros = {
 const CarouselItem = (props) => {
   // values
   const { id, cover, title, year, contentRating, duration, isList } = props;
-  // function from MapDispatchToProps
+  // MapDispatchToProps
   const { setFavorite, deleteFavorite } = props;
-  // function
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Add Fav
   const handleSetFavorite = () => {
-    const newFavorite = { id, cover, title, year, contentRating, duration };
-    setFavorite(newFavorite);
+    const newFav = { id, cover, title, year, contentRating, duration };
+    setFavorite(newFav);
   };
-  // function
+  // Delete Fav
   const handleDeleteFavorite = (itemId) => {
     deleteFavorite(itemId);
   };
-  // -->
-
+  // --> Icon Delete
   const deleteItemFav = (
     <img
       className="carousel-item__details--img"
@@ -41,7 +42,7 @@ const CarouselItem = (props) => {
       onClick={() => handleDeleteFavorite(id)}
     />
   );
-
+  // --> Icon Add
   const addItemFav = (
     <img
       className="carousel-item__details--img"
@@ -50,7 +51,7 @@ const CarouselItem = (props) => {
       onClick={handleSetFavorite}
     />
   );
-
+  // --> Icon Play
   const playItem = (
     <img
       className="carousel-item__details--img"
@@ -58,24 +59,42 @@ const CarouselItem = (props) => {
       alt="Play Icon"
     />
   );
-
+  // css className
+  const ci01 = "carousel-item ";
+  const ci02 = "carousel-item__img";
+  const ci03 = "carousel-item__details";
+  const ci04 = "carousel-item__details--title";
+  const ci05 = "carousel-item__details--subtitle";
+  //
+  const handleImageLoad = () => {
+    setIsLoading(false); // La imagen se ha cargado, establecer isLoading en falso
+  };
+  // Render component
   return (
-    <div className="carousel-item">
-      <img className="carousel-item__img" src={cover} alt={title} />
-      <div className="carousel-item__details">
+    <div className={ci01}>
+      <div className={isLoading ? `${ci02} loading` : ci02}>
+        <img
+          className={ci02}
+          src={cover}
+          alt={title}
+          onLoad={handleImageLoad}
+        />
+        {isLoading && <div className="loading-spinner" />}
+      </div>
+      <div className={ci03}>
         <div>
           <Link to={`/player/${id}`}>{playItem}</Link>
           {isList ? deleteItemFav : addItemFav}
         </div>
-        <p className="carousel-item__details--title">{title}</p>
-        <p className="carousel-item__details--subtitle">
-          {`${year} ${contentRating} ${duration}`}
-        </p>
+        <p className={ci04}>{title}</p>
+        <p className={ci05}>{`${year}`}</p>
+        <p className={ci05}>{`${contentRating}`}</p>
+        <p className={ci05}>{`${duration}`}</p>
       </div>
     </div>
   );
 };
-
+// PropTypes Component
 CarouselItem.propTypes = {
   cover: PropTypes.string,
   title: PropTypes.string,
@@ -84,4 +103,4 @@ CarouselItem.propTypes = {
   duration: PropTypes.number,
 };
 
-export default connect(null, mapDispatchTopros)(CarouselItem);
+export default connect(null, MapDispatchToProps)(CarouselItem);

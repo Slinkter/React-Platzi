@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "../assets/styles/components/Header.scss";
 import logo from "../assets/static/react-icon.png";
 import userIcon from "../assets/static/user-icon.png";
-import { logoutRequest } from "../actions";
+import { logoutRequest } from "../tools/actions";
 import classNames from "classnames";
 
 const mapStateToProps = (state) => {

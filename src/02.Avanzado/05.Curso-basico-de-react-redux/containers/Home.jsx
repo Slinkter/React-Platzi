@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 // Componets
 import Header from "../components/Header";
@@ -17,10 +17,13 @@ const mapStateToProps = (state) => {
   };
   return props;
 };
+
 //
 const Home = (props) => {
   //
   const { myList, trends, originals } = props;
+  //
+
   // --> List Favorite
   const ListFavorite = (
     <Categories title="Mi Lista">
@@ -51,6 +54,7 @@ const Home = (props) => {
       </Carousel>
     </Categories>
   );
+
   // render Components
   return (
     <>
