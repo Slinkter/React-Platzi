@@ -17,11 +17,11 @@ const mapStateToProps = (state) => {
   };
   return props;
 };
-
+//
 const Home = (props) => {
   //
   const { myList, trends, originals } = props;
-  //
+  // --> List Favorite
   const ListFavorite = (
     <Categories title="Mi Lista">
       <Carousel>
@@ -31,7 +31,7 @@ const Home = (props) => {
       </Carousel>
     </Categories>
   );
-
+  // --> List Trends
   const ListTrends = (
     <Categories title="Tendencias">
       <Carousel>
@@ -41,7 +41,7 @@ const Home = (props) => {
       </Carousel>
     </Categories>
   );
-
+  // --> List Originals
   const ListOriginals = (
     <Categories title="Originales ">
       <Carousel>
@@ -53,13 +53,13 @@ const Home = (props) => {
   );
   // render Components
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Search isHome />
       {myList.length > 0 && ListFavorite}
       {trends.length > 0 && ListTrends}
       {originals.length > 0 && ListOriginals}
-    </React.Fragment>
+    </>
   );
 };
 
