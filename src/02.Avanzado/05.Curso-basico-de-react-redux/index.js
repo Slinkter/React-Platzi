@@ -5,7 +5,7 @@ import { legacy_createStore } from "redux";
 // component
 import App from "./routes/App";
 // external
-import { reducer } from "./tools/index";
+import { reducer } from "./tools/reducer";
 import { initialState } from "./tools/initialState";
 import { composeEnhancers } from "./tools/componse";
 //
