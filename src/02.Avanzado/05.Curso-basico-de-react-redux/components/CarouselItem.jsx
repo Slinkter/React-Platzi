@@ -11,7 +11,7 @@ import plusIcon from "../assets/static/plus-icon.png";
 import removeIcon from "../assets/static/remove-icon.png";
 // Actions
 import { setFavorite, deleteFavorite } from "../tools/actions";
-// --->
+// ---> el reducer escucha ?
 const MapDispatchToProps = {
   setFavorite,
   deleteFavorite,
@@ -23,14 +23,14 @@ const CarouselItem = (props) => {
   // MapDispatchToProps
   const { setFavorite, deleteFavorite } = props;
   const [isLoading, setIsLoading] = useState(true);
-
   // Add Fav
   const handleSetFavorite = () => {
-    const newFav = { id, cover, title, year, contentRating, duration };
-    setFavorite(newFav);
+    // setFavorite (payload)
+    setFavorite({ id, cover, title, year, contentRating, duration });
   };
   // Delete Fav
   const handleDeleteFavorite = (itemId) => {
+    // deleteFavorite (payload)
     deleteFavorite(itemId);
   };
   // --> Icon Delete

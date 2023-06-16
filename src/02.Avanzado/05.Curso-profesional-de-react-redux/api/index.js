@@ -1,14 +1,22 @@
 import axios from "axios";
-export const getPokemon = () => {
-    return axios
-        .get("https://pokeapi.co/api/v2/pokemon?limit=10")
-        .then((res) => res.data.results)
-        .catch((err) => console.log(err));
+//
+const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
+//
+const getPokemon = () => {
+  const pokemons = axios
+    .get(url)
+    .then((res) => res.data.results)
+    .catch((err) => console.log(err));
+  return pokemons;
 };
 
-export const getPokemonDetail = (pokemon) => {
-    return axios
-        .get(pokemon.url)
-        .then((res) => res.data)
-        .catch((err) => console.log(err));
+const getPokemonDetail = (pokemon) => {
+  const pokemoenDetail = axios
+    .get(pokemon.url)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+  return pokemoenDetail;
 };
+
+export { getPokemon };
+export { getPokemonDetail };
