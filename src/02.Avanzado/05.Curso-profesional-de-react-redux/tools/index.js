@@ -5,17 +5,14 @@ const setPokemons = (payload) => ({
   type: SET_POKEMONS,
   payload,
 });
-
-const getPokemonsWithDetails =
-  (pokemons = []) =>
-  async (dispatch) => {
-    console.log(pokemons);
-    const pokemonDetailed = await Promise.all(
-      pokemons.map((pokemon) => getPokemonDetail(pokemon))
-    );
-    console.log(pokemonDetailed);
-    dispatch(setPokemons(pokemonDetailed));
-  };
+// funcion de orden superior
+const getPokemonsWithDetails = (pokemons) => async (dispatch) => {
+  const pokemonDetailed = await Promise.all(
+    pokemons.map((pokemon) => getPokemonDetail(pokemon))
+  );
+  // actualizar es el state de store redux
+  dispatch(setPokemons(pokemonDetailed));
+};
 
 export { setPokemons };
 export { getPokemonsWithDetails };

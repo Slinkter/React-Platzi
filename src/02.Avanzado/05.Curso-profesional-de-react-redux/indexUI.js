@@ -1,17 +1,15 @@
 // librerias
 import React from "react";
 import { Provider } from "react-redux";
-import { compose, applyMiddleware, legacy_createStore } from "redux";
-import thunk from "redux-thunk";
+import { legacy_createStore as createStore } from "redux";
 // Desarrollo
-import { pokemonsReducer } from "./tools/reducer";
-import { logger } from "./tools/middlewares";
+import { pokemonsReducer as reducer } from "./tools/reducer";
+import { initialState } from "./tools/inititalState";
+import { componsedEnhacers as componse } from "./tools/componsedEnhacers";
 // componente
 import App from "./App";
-
-const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // redux
-const componsedEnhacers = composeAlt(applyMiddleware(thunk, logger)); //redux
-const store = legacy_createStore(pokemonsReducer, componsedEnhacers); // redux
+//
+const store = createStore(reducer, initialState, componse);
 //
 const ProviderStore = (
   <Provider store={store}>
