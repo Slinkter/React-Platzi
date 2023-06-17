@@ -1,13 +1,13 @@
 import axios from "axios";
 //
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
+const url = "https://pokeapi.co/api/v2/pokemon?limit=5";
 //
-const getPokemon = () => {
-  const pokemons = axios
+const getPokemonData = () => {
+  const data = axios
     .get(url)
     .then((res) => res.data.results)
     .catch((err) => console.log(err));
-  return pokemons;
+  return data;
 };
 
 const getPokemonDetail = (pokemon) => {
@@ -18,5 +18,5 @@ const getPokemonDetail = (pokemon) => {
   return pokemoenDetail;
 };
 
-export { getPokemon };
+export { getPokemonData };
 export { getPokemonDetail };

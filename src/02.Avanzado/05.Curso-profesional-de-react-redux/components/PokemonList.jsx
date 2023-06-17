@@ -3,7 +3,7 @@ import PokemonCard from "./PokemonCard";
 import "./PokemonList.css";
 
 function PokemonList(props) {
-  console.log("props : ", props);
+  //console.log("props : ", props);
   const { pokemons } = props;
   return (
     <div className="PokemonList">
